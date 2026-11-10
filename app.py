@@ -5,7 +5,8 @@ import pandas as pd
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-BASE_DIR = os.path.dirname(os.path.abspath('/content/templates/questions.html'))
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def load_model(filename):
     for folder in (BASE_DIR, os.path.join(BASE_DIR, "models")):
@@ -14,10 +15,10 @@ def load_model(filename):
             return joblib.load(path)
     raise FileNotFoundError(f"{filename} not found next to app.py or in ./models/")
 
+scaler = load_model("scaler.pkl")
+kmeans = load_model("kmeans_model.pkl")
+diabetes_model = load_model("best_diabetes_model.pkl")
 
-scaler = load_model('/content/models/scaler.pkl')
-kmeans = load_model('/content/models/kmeans_model.pkl')
-diabetes_model = load_model('/content/models/best_diabetes_model.pkl')
 
 FEATURES = list(scaler.feature_names_in_)
 
