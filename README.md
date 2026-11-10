@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="images/banner.svg" alt="LatentHealth" width="100%" />
+<img src="images/banner/LatentHealth Diabetes Risk Analytics Banner.png" alt="LatentHealth" width="80%" />
 
 <br/>
 
